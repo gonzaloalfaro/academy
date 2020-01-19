@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="dashboard">
     <Dashboard />
   </div>
 </template>
@@ -9,7 +9,7 @@
 import Dashboard from '@/components/Dashboard.vue'
 
 export default {
-  name: 'home',
+  name: 'dashboard',
   components: {
     Dashboard
   }
