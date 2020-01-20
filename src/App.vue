@@ -1,60 +1,106 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
+    <v-app-bar app color="secondary" dark>
       <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+        <v-img src="./assets/spotify.svg" max-height="45" max-width="45" />
       </div>
 
-      <v-spacer></v-spacer>
+      <v-spacer>
+        <div class="d-flex text-center justify-center">
+          <v-autocomplete
+            cache-items
+            class="mx-4"
+            flat
+            hide-no-data
+            hide-details
+            label="Busqueda"
+            solo-inverted
+          ></v-autocomplete>
+        </div>
+      </v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <div class="d-flex align-center">
+        <v-col class="text-center" cols="12" sm="4">
+          <div class="my-2">
+            <v-btn>Login</v-btn>
+            <v-row justify="space-around">
+              <v-col cols="12">
+                <v-select v-model="color" :items="colors" label="Color"></v-select>
+              </v-col>
+
+              <v-switch v-model="drawer" class="ma-2" label="v-model"></v-switch>
+
+              <v-switch v-model="miniVariant" class="ma-2" label="Mini variant"></v-switch>
+
+              <v-switch v-model="expandOnHover" class="ma-2" label="Expand on hover"></v-switch>
+
+              <v-switch v-model="background" class="ma-2" label="Background"></v-switch>
+
+              <v-switch v-model="right" class="ma-2" label="Right"></v-switch>
+            </v-row>
+
+            <v-card height="400">
+              <v-navigation-drawer
+                v-model="drawer"
+                :color="color"
+                :expand-on-hover="expandOnHover"
+                :mini-variant="miniVariant"
+                :right="right"
+                :src="bg"
+                absolute
+                dark
+              >
+                <v-list dense nav class="py-0">
+                  <v-list-item two-line :class="miniVariant && 'px-0'">
+                    <v-list-item-avatar>
+                      <img src="https://randomuser.me/api/portraits/men/81.jpg" />
+                    </v-list-item-avatar>
+
+                    <v-list-item-content>
+                      <v-list-item-title>Application</v-list-item-title>
+                      <v-list-item-subtitle>Subtext</v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+
+                  <v-divider></v-divider>
+
+                  <v-list-item v-for="item in items" :key="item.title" link>
+                    <v-list-item-icon>
+                      <v-icon>{{ item.icon }}</v-icon>
+                    </v-list-item-icon>
+
+                    <v-list-item-content>
+                      <v-list-item-title>{{ item.title }}</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list>
+              </v-navigation-drawer>
+            </v-card>
+          </div>
+        </v-col>
+      </div>
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <HelloWorld />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import HelloWorld from "./components/HelloWorld";
+import Login from "./components/Login";
 
 export default {
-  name: 'App',
+  name: "App",
 
   components: {
     HelloWorld,
+    Login
   },
 
   data: () => ({
     //
-  }),
+  })
 };
 </script>

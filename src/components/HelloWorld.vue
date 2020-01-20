@@ -1,144 +1,139 @@
 <template>
   <v-container>
-    <v-layout
-      text-center
-      wrap
-    >
-      <v-flex xs12>
+    <div class="grid-container">
+      <div class="a">
+        <p>hola1</p>
+      </div>
+      <div>
+        <p>hola4</p>
         <v-img
-          :src="require('../assets/logo.svg')"
-          class="my-3"
-          contain
-          height="200"
+          src="https://i.scdn.co/image/f94cbc0d16fded80c38c2f685356cf4275f885de"
+          max-width="500"
+          max-height="500"
         ></v-img>
-      </v-flex>
 
-      <v-flex mb-4>
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
-        </h1>
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br>please join our online
-          <a href="https://community.vuetifyjs.com" target="_blank">Discord Community</a>
-        </p>
-      </v-flex>
+        <br />
+        <h3>Karol G, Nicki Minaj</h3>
+        <h4>Tusa</h4>
+      </div>
+      <div>
+        <div class="text-center">
+          <v-list>
+            <v-list-item>
+              <v-list-item-content>
+                <v-list-item-title>Tusa</v-list-item-title>
+              </v-list-item-content>
 
-      <v-flex
-        mb-5
-        xs12
-      >
-        <h2 class="headline font-weight-bold mb-3">What's next?</h2>
+              <v-spacer></v-spacer>
 
-        <v-layout justify-center>
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ next.text }}
-          </a>
-        </v-layout>
-      </v-flex>
+              <v-list-item-icon>
+                <v-btn icon>
+                  <v-icon>mdi-rewind</v-icon>
+                </v-btn>
+              </v-list-item-icon>
+              <v-list-item-icon :class="{ 'mx-5': $vuetify.breakpoint.mdAndUp }">
+                <v-btn icon>
+                  <v-icon>mdi-pause</v-icon>
+                </v-btn>
+              </v-list-item-icon>
 
-      <v-flex
-        xs12
-        mb-5
-      >
-        <h2 class="headline font-weight-bold mb-3">Important Links</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-
-      <v-flex
-        xs12
-        mb-5
-      >
-        <h2 class="headline font-weight-bold mb-3">Ecosystem</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-    </v-layout>
+              <v-list-item-icon class="ml-0" :class="{ 'mr-3': $vuetify.breakpoint.mdAndUp }">
+                <v-btn icon>
+                  <v-icon>mdi-fast-forward</v-icon>
+                </v-btn>
+              </v-list-item-icon>
+            </v-list-item>
+          </v-list>
+          <v-simple-table>
+            <template v-slot:default>
+              <thead>
+                <tr>
+                  <th class="text-left">Name</th>
+                  <th class="text-left">Calories</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="item in desserts" :key="item.name">
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.calories }}</td>
+                </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
+        </div>
+      </div>
+      <div>
+        <p>hola6</p>
+      </div>
+    </div>
   </v-container>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
 
   data: () => ({
-    ecosystem: [
-      {
-        text: 'vuetify-loader',
-        href: 'https://github.com/vuetifyjs/vuetify-loader',
-      },
-      {
-        text: 'github',
-        href: 'https://github.com/vuetifyjs/vuetify',
-      },
-      {
-        text: 'awesome-vuetify',
-        href: 'https://github.com/vuetifyjs/awesome-vuetify',
-      },
-    ],
-    importantLinks: [
-      {
-        text: 'Documentation',
-        href: 'https://vuetifyjs.com',
-      },
-      {
-        text: 'Chat',
-        href: 'https://community.vuetifyjs.com',
-      },
-      {
-        text: 'Made with Vuetify',
-        href: 'https://madewithvuejs.com/vuetify',
-      },
-      {
-        text: 'Twitter',
-        href: 'https://twitter.com/vuetifyjs',
-      },
-      {
-        text: 'Articles',
-        href: 'https://medium.com/vuetify',
-      },
-    ],
-    whatsNext: [
-      {
-        text: 'Explore components',
-        href: 'https://vuetifyjs.com/components/api-explorer',
-      },
-      {
-        text: 'Select a layout',
-        href: 'https://vuetifyjs.com/layout/pre-defined',
-      },
-      {
-        text: 'Frequently Asked Questions',
-        href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-      },
-    ],
-  }),
+    desserts: [
+          {
+            name: 'Frozen Yogurt',
+            calories: 159,
+          },
+          {
+            name: 'Ice cream sandwich',
+            calories: 237,
+          },
+          {
+            name: 'Eclair',
+            calories: 262,
+          },
+          {
+            name: 'Cupcake',
+            calories: 305,
+          },
+          {
+            name: 'Gingerbread',
+            calories: 356,
+          },
+          {
+            name: 'Jelly bean',
+            calories: 375,
+          },
+          {
+            name: 'Lollipop',
+            calories: 392,
+          },
+          {
+            name: 'Honeycomb',
+            calories: 408,
+          },
+          {
+            name: 'Donut',
+            calories: 452,
+          },
+          {
+            name: 'KitKat',
+            calories: 518,
+          },
+        ]
+  })
 };
 </script>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "sidebar content"
+    "footer footer";
+  grid-template-rows: 150px 400px 100px;
+  grid-template-columns: 200px 1fr;
+}
+
+.a {
+  grid-row-start: footer;
+  grid-row-end: footer;
+  grid-column-start: footer;
+  grid-column-end: footer;
+}
+</style>
+
