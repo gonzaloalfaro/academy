@@ -1,60 +1,94 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col cols="12" xs="12" sm="12" md="6" class="mx-auto">
-        <v-card shaped>
-          <v-img
-            src="https://cdn.vuetifyjs.com/images/cards/house.jpg"
-            class="white--text align-end"
-            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-            height="200px"
-          >
-            <v-card-title v-text="favorites"></v-card-title>
-          </v-img>
+    <v-card class="mt-5">
+      <v-tabs
+        background-color="white"
+        color="deep-purple accent-4"
+        right
+        v-model="tabs"
+      >
+        <v-tab>Tracks</v-tab>
+        <v-tab>Playlists</v-tab>
 
-          <v-card-actions>
-            <v-spacer></v-spacer>
+        <v-tabs-items v-model="tabs">
+          <v-tab-item>
+            <v-container fluid>
+              <v-simple-table class="mt-5">
+                <thead>
+                  <tr></tr>
+                </thead>
+                <tbody>
+                  <tr v-for="index in 10" :key="index">
+                    <td>
+                      <v-icon medium color="dark">mdi-play-circle</v-icon>
+                    </td>
+                    <td>My favorite track</td>
+                    <td>My favorite artist</td>
 
-            <v-btn icon>
-              <v-icon>mdi-heart</v-icon>
-            </v-btn>
+                    <td>03:30</td>
+                    <td>
+                      <v-icon medium color="dark">mdi-delete-sweep</v-icon>
+                    </td>
+                  </tr>
+                </tbody>
+              </v-simple-table>
+            </v-container>
+          </v-tab-item>
+          <v-tab-item>
+            <v-container fluid>
+              <v-item-group>
+                <v-row>
+                  <v-col
+                    v-for="n in 7"
+                    :key="n"
+                    cols="12"
+                    xs="12"
+                    sm="4"
+                    md="3"
+                  >
+                    <v-hover v-slot:default="{ hover }">
+                      <v-card
+                        
+                        :elevation="hover ? 12 : 2"
+                        :class="{ 'on-hover': hover }"
+                      >
+                        <v-img
+                          src="http://lorempixel.com/output/nightlife-q-c-640-480-5.jpg"
+                          height="200px"
+                          class="onhover align-end"
+                        >
+                          <v-card-actions>
+                            <v-spacer></v-spacer>
 
-            <v-btn icon>
-              <v-icon>mdi-bookmark</v-icon>
-            </v-btn>
-
-            <v-btn icon>
-              <v-icon>mdi-share-variant</v-icon>
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-
-        <v-simple-table class="mt-5">
-          <thead>
-            <tr></tr>
-          </thead>
-          <tbody>
-            <div v-if="favorite.length <= 0"> 
-              <p color="white" class="text-center mt-2">No favorite songs</p> 
-            </div>
-            <tr v_else v-for="fav in favorite" :key="fav.id">
-              <td><v-icon medium color="dark">mdi-play-circle</v-icon></td>
-              <td> {{ fav.track.name }} </td>
-              <td> <span v-for="artist in fav.track.artists" :key="artist.id"> {{ artist.name }}. </span></td>
-                
-              <td> {{ fav.track.duration_ms }} </td>
-              <td><v-icon medium color="error">mdi-delete-sweep</v-icon></td>
-            </tr>
-          </tbody>
-        </v-simple-table>
-      </v-col>
-
-      <v-col cols="12" xs="12" sm="12" md="6">
-      </v-col>
-    </v-row>
-    <pre>
-      {{  }}
-    </pre>
+                            <v-btn
+                              :class="{ 'show-btns': hover }"
+                              icon
+                            >
+                              <v-icon
+                                :class="{ 'show-btns': hover }"
+                                large
+                              >
+                                mdi-play-circle
+                              </v-icon>
+                            </v-btn>
+                          </v-card-actions>
+                        </v-img>
+                        <v-card-title>
+                          My playlist
+                        </v-card-title>
+                        <v-card-subtitle>
+                          51 tracks 
+                        </v-card-subtitle>
+                      </v-card>
+                    </v-hover>
+                  </v-col>
+                </v-row>
+              </v-item-group>
+            </v-container>
+          </v-tab-item>
+        </v-tabs-items>
+      </v-tabs>
+    </v-card>
   </v-container>
 </template>
 
@@ -64,15 +98,21 @@ export default {
   name: "Dashboard",
 
   data: () => ({
-    favorites: "Me favorite music"
+    tabs: null
   }),
   computed: {
-    ...mapState(['playlists', 'favorite'])
+    ...mapState(["playlists", "favorite"])
   },
   methods: {
-    ...mapMutations(['addFavorite']),
-    ...mapActions(['getPlaylists'])
+    ...mapMutations(["addFavorite"]),
+    ...mapActions(["getPlaylists"])
   }
-  
 };
 </script>
+
+<style lang="sass" scoped>
+
+  .show-btns 
+    color: rgb(6, 141, 6) !important
+
+</style>

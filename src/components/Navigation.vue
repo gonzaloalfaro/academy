@@ -8,10 +8,10 @@
       app
     >
       <v-list>
-        <v-row justify="center">
+        <v-row justify="center" class="my-5">
           <v-col align="center">
             <v-avatar class="profile" color="grey" size="50">
-              <v-img src="https://cdn.vuetifyjs.com/images/john.jpg"></v-img>
+              <v-img src="https://cdn0.iconfinder.com/data/icons/media-yellow/60/013_-_Playlist-512.png"></v-img>
             </v-avatar>
             <!-- <v-list-item-content>
               <v-list-item-title class="title">Marcus Obrien</v-list-item-title>
@@ -91,9 +91,14 @@ export default {
           to: "/"
         },
         {
-          icon: "mdi-view-dashboard",
-          title: "Dashboard",
-          to: "/dashboard"
+          icon: "mdi-view-day",
+          title: "Explore",
+          to: "/explore"
+        },
+        {
+          icon: "mdi-magnify",
+          title: "Search",
+          to: "/search"
         },
         {
           icon: "mdi-tag-heart",
@@ -104,11 +109,6 @@ export default {
           icon: "mdi-chart-bubble",
           title: "About",
           to: "/about"
-        },
-        {
-          icon: "mdi-help",
-          title: "Help",
-          to: "/help"
         }
       ],
       miniVariant: false,

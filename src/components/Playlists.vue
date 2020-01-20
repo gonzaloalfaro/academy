@@ -6,7 +6,7 @@
           <v-col cols="auto" sm="12" md="4" align="center" justify="center">
             <v-card class="mx-auto" max-width="250" raised shaped>
               <v-img
-                src="https://charts-images.scdn.co/REGIONAL_BO_DEFAULT.jpg"
+                src="https://cdn.vuetifyjs.com/images/cards/house.jpg"
                 max-height="250"
               ></v-img>
             </v-card>
@@ -17,7 +17,7 @@
               <v-icon medium color="dark darken-2">mdi-sort-variant</v-icon>
             </v-row>
             <v-row justify="center" class="mt-5">
-              <p class="title">Asi me gustas</p>
+              <p class="title">My album</p>
             </v-row>
           </v-col>
 
@@ -28,21 +28,23 @@
                   <tr></tr>
                 </thead>
                 <tbody>
-                  <tr v-for="i in 50" :key="i">
+                  <tr v-for="i in 15" :key="i">
                     <td>
                       <v-btn icon color="dark lighten-2">
-                        <v-icon large color="dark">mdi-play-circle-outline</v-icon>
+                        <v-icon large color="dark"
+                          >mdi-play-circle-outline</v-icon
+                        >
+                        <!-- <v-icon large color="dark">mdi-play-circle</v-icon> -->
                       </v-btn>
                     </td>
-                    <!-- <td><v-icon large color="dark">mdi-play-circle</v-icon></td> -->
                     <td>
                       <v-btn icon color="dark lighten-2">
                         <v-icon medium color="dark">mdi-heart-outline</v-icon>
+                        <!-- <v-icon medium color="dark">mdi-heart</v-icon> -->
                       </v-btn>
                     </td>
-                    <!-- <td><v-icon medium color="dark">mdi-heart</v-icon></td> -->
-                    <td>Mi tema favorito</td>
-                    <td>Mi artista favorito</td>
+                    <td>My favorite track</td>
+                    <td>My favorite artist</td>
                     <td>03:30</td>
                     <td>
                       <v-btn icon color="success lighten-2">
@@ -63,6 +65,8 @@
 <script>
 export default {
   name: "Dashboard",
-  data: () => ({})
+  data: () => ({
+    favorite: []
+  })
 };
 </script>
