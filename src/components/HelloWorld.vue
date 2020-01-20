@@ -1,22 +1,21 @@
 <template>
-  <v-container>
-    <div class="grid-container">
-      <div class="a">
-        <p>hola1</p>
-      </div>
-      <div>
-        <p>hola4</p>
-        <v-img
-          src="https://i.scdn.co/image/f94cbc0d16fded80c38c2f685356cf4275f885de"
-          max-width="500"
-          max-height="500"
-        ></v-img>
+  <v-container class="mt-5">
+    <v-row>
+      <v-col cols="12" xs="12" sm="12" md="4">
+        <div>
+          <p>hola4</p>
+          <v-img
+            src="https://i.scdn.co/image/f94cbc0d16fded80c38c2f685356cf4275f885de"
+            max-width="500"
+            max-height="500"
+          ></v-img>
 
-        <br />
-        <h3>Karol G, Nicki Minaj</h3>
-        <h4>Tusa</h4>
-      </div>
-      <div>
+          <br />
+          <h3>Karol G, Nicki Minaj</h3>
+          <h4>Tusa</h4>
+        </div>
+      </v-col>
+      <v-col cols="12" xs="12" sm="12" md="8">
         <div class="text-center">
           <v-list>
             <v-list-item>
@@ -61,11 +60,9 @@
             </template>
           </v-simple-table>
         </div>
-      </div>
-      <div>
-        <p>hola6</p>
-      </div>
-    </div>
+      </v-col>
+    </v-row>
+
   </v-container>
 </template>
 
@@ -75,65 +72,51 @@ export default {
 
   data: () => ({
     desserts: [
-          {
-            name: 'Frozen Yogurt',
-            calories: 159,
-          },
-          {
-            name: 'Ice cream sandwich',
-            calories: 237,
-          },
-          {
-            name: 'Eclair',
-            calories: 262,
-          },
-          {
-            name: 'Cupcake',
-            calories: 305,
-          },
-          {
-            name: 'Gingerbread',
-            calories: 356,
-          },
-          {
-            name: 'Jelly bean',
-            calories: 375,
-          },
-          {
-            name: 'Lollipop',
-            calories: 392,
-          },
-          {
-            name: 'Honeycomb',
-            calories: 408,
-          },
-          {
-            name: 'Donut',
-            calories: 452,
-          },
-          {
-            name: 'KitKat',
-            calories: 518,
-          },
-        ]
+      {
+        name: "Frozen Yogurt",
+        calories: 159
+      },
+      {
+        name: "Ice cream sandwich",
+        calories: 237
+      },
+      {
+        name: "Eclair",
+        calories: 262
+      },
+      {
+        name: "Cupcake",
+        calories: 305
+      },
+      {
+        name: "Gingerbread",
+        calories: 356
+      },
+      {
+        name: "Jelly bean",
+        calories: 375
+      },
+      {
+        name: "Lollipop",
+        calories: 392
+      },
+      {
+        name: "Honeycomb",
+        calories: 408
+      },
+      {
+        name: "Donut",
+        calories: 452
+      },
+      {
+        name: "KitKat",
+        calories: 518
+      }
+    ]
   })
 };
 </script>
 <style>
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    "sidebar content"
-    "footer footer";
-  grid-template-rows: 150px 400px 100px;
-  grid-template-columns: 200px 1fr;
-}
 
-.a {
-  grid-row-start: footer;
-  grid-row-end: footer;
-  grid-column-start: footer;
-  grid-column-end: footer;
-}
 </style>
 

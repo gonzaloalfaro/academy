@@ -1,106 +1,76 @@
 <template>
   <v-app>
-    <v-app-bar app color="secondary" dark>
-      <div class="d-flex align-center">
+    <v-sheet height="100%" class="overflow-hidden" style="position: relative;">
+      <v-navigation-drawer v-model="drawer" absolute temporary>
+        <v-list-item>
+          <v-list-item-avatar>
+            <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+          </v-list-item-avatar>
+
+          <v-list-item-content>
+            <v-list-item-title>John Leider</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-divider></v-divider>
+
+        <v-list dense>
+          <v-list-item v-for="item in items" :key="item.title" link>
+            <v-list-item-icon>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-content>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+      <v-container>
+        <router-view></router-view>
+      </v-container>
+    </v-sheet>
+
+    <div>
+      <v-app-bar color="deep-purple accent-4" dark app class="justify-space-between">
         <v-img src="./assets/spotify.svg" max-height="45" max-width="45" />
-      </div>
-
-      <v-spacer>
-        <div class="d-flex text-center justify-center">
-          <v-autocomplete
-            cache-items
-            class="mx-4"
-            flat
-            hide-no-data
-            hide-details
-            label="Busqueda"
-            solo-inverted
-          ></v-autocomplete>
-        </div>
-      </v-spacer>
-
-      <div class="d-flex align-center">
-        <v-col class="text-center" cols="12" sm="4">
-          <div class="my-2">
-            <v-btn>Login</v-btn>
-            <v-row justify="space-around">
-              <v-col cols="12">
-                <v-select v-model="color" :items="colors" label="Color"></v-select>
-              </v-col>
-
-              <v-switch v-model="drawer" class="ma-2" label="v-model"></v-switch>
-
-              <v-switch v-model="miniVariant" class="ma-2" label="Mini variant"></v-switch>
-
-              <v-switch v-model="expandOnHover" class="ma-2" label="Expand on hover"></v-switch>
-
-              <v-switch v-model="background" class="ma-2" label="Background"></v-switch>
-
-              <v-switch v-model="right" class="ma-2" label="Right"></v-switch>
-            </v-row>
-
-            <v-card height="400">
-              <v-navigation-drawer
-                v-model="drawer"
-                :color="color"
-                :expand-on-hover="expandOnHover"
-                :mini-variant="miniVariant"
-                :right="right"
-                :src="bg"
-                absolute
-                dark
-              >
-                <v-list dense nav class="py-0">
-                  <v-list-item two-line :class="miniVariant && 'px-0'">
-                    <v-list-item-avatar>
-                      <img src="https://randomuser.me/api/portraits/men/81.jpg" />
-                    </v-list-item-avatar>
-
-                    <v-list-item-content>
-                      <v-list-item-title>Application</v-list-item-title>
-                      <v-list-item-subtitle>Subtext</v-list-item-subtitle>
-                    </v-list-item-content>
-                  </v-list-item>
-
-                  <v-divider></v-divider>
-
-                  <v-list-item v-for="item in items" :key="item.title" link>
-                    <v-list-item-icon>
-                      <v-icon>{{ item.icon }}</v-icon>
-                    </v-list-item-icon>
-
-                    <v-list-item-content>
-                      <v-list-item-title>{{ item.title }}</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-list>
-              </v-navigation-drawer>
-            </v-card>
-          </div>
-        </v-col>
-      </div>
-    </v-app-bar>
-
-    <v-content>
-      <HelloWorld />
-    </v-content>
+        
+        <v-autocomplete
+          cache-items
+          class="mx-4"
+          flat
+          hide-no-data
+          hide-details
+          label="Busqueda"
+          solo-inverted
+          
+        ></v-autocomplete>
+       
+        <v-btn color="pink" dark @click.stop="drawer = !drawer">Toggle</v-btn>
+      </v-app-bar>
+    </div>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
-import Login from "./components/Login";
+// import HelloWorld from "./components/HelloWorld";
+// import Login from "./components/Login";
 
 export default {
   name: "App",
 
   components: {
-    HelloWorld,
-    Login
+    // HelloWorld
+    // Login
   },
 
   data: () => ({
     //
+    drawer: null,
+    items: [
+      { title: "Home", icon: "mdi-home" },
+      { title: "About", icon: "mdi-compass" }
+    ]
   })
 };
 </script>
