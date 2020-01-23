@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card class="mt-5">
+    <v-card>
       <v-tabs
         background-color="white"
         color="deep-purple accent-4"

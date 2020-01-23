@@ -7,6 +7,10 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 
 Vue.use(VueAxios, axios)
+
+//CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+axios.defaults.baseURL = 'https://cors-anywhere.herokuapp.com'
+
 Vue.config.productionTip = false
 
 new Vue({
