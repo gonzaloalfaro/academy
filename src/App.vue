@@ -8,7 +8,7 @@
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title>John Leider</v-list-item-title>
+            <v-list-item-title>Ruben Peñarrieta</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -32,7 +32,7 @@
     </v-sheet>
 
     <div>
-      <v-app-bar color="deep-purple accent-4" dark app class="justify-space-between">
+      <v-app-bar color="dark accent-4" dark app class="justify-space-between">
         <v-img src="./assets/spotify.svg" max-height="45" max-width="45" />
         
         <v-autocomplete
@@ -46,7 +46,7 @@
           
         ></v-autocomplete>
        
-        <v-btn color="pink" dark @click.stop="drawer = !drawer">Toggle</v-btn>
+        <v-btn color="dark" @click.stop="drawer = !drawer">Login</v-btn>
       </v-app-bar>
     </div>
   </v-app>

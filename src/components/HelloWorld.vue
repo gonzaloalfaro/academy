@@ -1,9 +1,8 @@
 <template>
-  <v-container class="mt-5">
+  <v-container class="mt-12">
     <v-row>
       <v-col cols="12" xs="12" sm="12" md="4">
         <div>
-          <p>hola4</p>
           <v-img
             src="https://i.scdn.co/image/f94cbc0d16fded80c38c2f685356cf4275f885de"
             max-width="500"
@@ -15,7 +14,7 @@
           <h4>Tusa</h4>
         </div>
       </v-col>
-      <v-col cols="12" xs="12" sm="12" md="8">
+      <v-col cols="12" xs="12" sm="12" md="8" pt="5">
         <div class="text-center">
           <v-list>
             <v-list-item>
@@ -119,4 +118,3 @@ export default {
 <style>
 
 </style>
-
