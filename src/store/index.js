@@ -17,24 +17,23 @@ export default new Vuex.Store({
     tracklist: [],
     genres: [],
     info: [],
-    searching: ''
+    searching: ""
   },
   getters: {
     filterGenres(state) {
-      let filter = []
+      let filter = [];
       for (const item of state.genres) {
-        let name = item.name.toLowerCase()
-        if(name.indexOf(state.searching) >= 0) {
-          filter.push(item)
+        let name = item.name.toLowerCase();
+        if (name.indexOf(state.searching) >= 0) {
+          filter.push(item);
         }
       }
-      return filter
+      return filter;
     }
-
   },
   mutations: {
     addGenres(state, genres) {
-      state.genres = genres;
+      state.genres = genres
     },
     filtering(state, payload) {
       state.searching = payload.toLowerCase()
@@ -47,7 +46,7 @@ export default new Vuex.Store({
     addTrack(state, payload) {
       state.track = payload
     },
-    addPlaylist(state, payload){
+    addPlaylist(state, payload) {
       state.playlist = payload
       state.tracks = payload.tracks.data
     },
@@ -57,81 +56,87 @@ export default new Vuex.Store({
     addTracklist(state, payload) {
       state.tracklist = payload.data
     }
-
   },
   actions: {
     //Get list of genders (all)
     async getGenres({ commit }) {
       try {
-        const response = await axios.get(`/https://api.deezer.com/genre`);
-        commit("addGenres", response.data.data)
+        const response = await axios.get(`/https://api.deezer.com/genre/`);
+        commit("addGenres", response.data.data);
       } catch (error) {
-        error
+        error;
       }
     },
 
     //Get	returns the best lists (all)
     async getCharts({ commit }) {
       try {
-        const response = await axios.get(`/https://api.deezer.com/chart`)
-        commit('addCharts', response.data)
+        const response = await axios.get(`/https://api.deezer.com/chart/`);
+        commit("addCharts", response.data);
       } catch (error) {
-        error
+        error;
       }
     },
 
     //Get information about the API in the current country
     async getInfo({ state }) {
       try {
-        const response = await axios.get(`/https://api.deezer.com/infos/?Bo`)
-        state.info = response.data
+        const response = await axios.get(`/https://api.deezer.com/infos/`);
+        state.info = response.data;
       } catch (error) {
-        error
+        error;
       }
     },
 
     //Get returns a track (id)
     async getTrack({ commit }, id) {
       try {
-        const response = await axios.get(`/https://api.deezer.com/track/${id}`)
-        commit('addTrack', response.data)
+        const response = await axios.get(
+          `/https://api.deezer.com/track/${id}/`
+        );
+        commit("addTrack", response.data);
       } catch (error) {
-        error
+        error;
       }
     },
 
     //Get returns a playlist (id)
     async getPlaylist({ commit }, id) {
       try {
-        const response = await axios.get(`/https://api.deezer.com/playlist/${id}`)
-        commit('addPlaylist', response.data)
+        const response = await axios.get(
+          `/https://api.deezer.com/playlist/${id}/`
+        );
+        commit("addPlaylist", response.data);
       } catch (error) {
-        error
+        error;
       }
     },
 
     //Get returns a playlist (id)
-    async getArtist({ commit}, id) {
+    async getArtist({ commit }, id) {
       try {
-        const response = await axios.get(`/https://api.deezer.com/artist/${id}`) 
-        commit('addArtist', response.data)
-        const tracklist = await axios.get(`/${response.data.tracklist}`)
-        commit('addTracklist', tracklist.data)
+        const response = await axios.get(
+          `/https://api.deezer.com/artist/${id}/`
+        );
+        commit("addArtist", response.data);
+        const tracklist = await axios.get(`/${response.data.tracklist}`);
+        commit("addTracklist", tracklist.data);
       } catch (error) {
-        error
+        error;
       }
     },
 
     //Get search track, playlist, artist
-    async getSearch({commit}, item) {
+    async getSearch({ commit }, item) {
       try {
-        const response = await axios.get(`/https://api.deezer.com/search/${item.track}?q=${item.param}`)
-        commit('addTracklist', response.data)
+        const response = await axios.get(
+          `/https://api.deezer.com/search/${item.track}?q=${item.param}/`
+        );
+        commit("addTracklist", response.data);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     }
-
   },
   modules: {}
 });
