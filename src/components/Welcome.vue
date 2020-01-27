@@ -2,7 +2,7 @@
   <v-container>
     <v-sheet class="mx-auto" elevation="8">
       <p class="headline font-weight-bold px-6 pt-6">Top tracks</p>
-      <v-slide-group v-model="modelone" class="px-6" center-active show-arrows>
+      <v-slide-group v-model="modelone" class="px-2" center-active show-arrows>
         <v-slide-item v-for="(track, index) in tracks" :key="index">
           <router-link
             :to="{ name: 'track', params: { id: `${track.id}` } }"
@@ -13,7 +13,7 @@
                   <v-expand-transition>
                     <div
                       v-if="hover"
-                      class="d-flex transition-fast-in-fast-out blue-grey darken-4 v-card--reveal headline white--text"
+                      class="d-flex transition-fast-in-fast-out cyan darken-3 v-card--reveal headline white--text text-center"
                       style="height: 100%"
                     >
                       {{ track.title }}
@@ -38,7 +38,7 @@
                   <v-expand-transition>
                     <div
                       v-if="hover"
-                      class="d-flex transition-fast-in-fast-out blue-grey darken-4 v-card--reveal headline white--text"
+                      class="d-flex transition-fast-in-fast-out cyan darken-3 v-card--reveal headline white--text text-center"
                       style="height: 100%"
                     >
                       {{ playlist.title }}
@@ -63,7 +63,7 @@
                   <v-expand-transition>
                     <div
                       v-if="hover"
-                      class="d-flex transition-fast-in-fast-out blue-grey darken-4 v-card--reveal headline white--text"
+                      class="d-flex transition-fast-in-fast-out cyan darken-3 v-card--reveal headline white--text text-center"
                       style="height: 100%"
                     >
                       {{ artist.name }}
@@ -75,6 +75,7 @@
           </router-link>
         </v-slide-item>
       </v-slide-group>
+
     </v-sheet>
   </v-container>
 </template>
@@ -95,7 +96,7 @@ export default {
     ...mapActions(["getCharts"])
   },
   created() {
-    this.getCharts();
+    this.getCharts()
   }
 };
 </script>

@@ -14,7 +14,7 @@
       ></v-text-field>
       <!-- </v-form> -->
       <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
+        <v-icon>mdi-notification-clear-all</v-icon>
       </v-btn>
     </v-toolbar>
 

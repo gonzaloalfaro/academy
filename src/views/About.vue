@@ -4,9 +4,12 @@
       <v-card class="mx-auto" raised>
         <v-list-item>
           <v-list-item-content>
-            <v-list-item-title class="headline mb-1">This is an about page</v-list-item-title>
+            <v-list-item-title class="headline mb-1"
+              >This is an about page</v-list-item-title
+            >
           </v-list-item-content>
         </v-list-item>
+
         <pre> {{ info }} </pre>
       </v-card>
     </v-container>
@@ -18,14 +21,15 @@
 import { mapState, mapActions } from "vuex";
 export default {
   name: "about",
+  data: () => ({}),
   computed: {
-    ...mapState(['info'])
+    ...mapState(["info"])
   },
   methods: {
-    ...mapActions(['getInfo'])
+    ...mapActions(["getInfo"])
   },
   created() {
-    this.getInfo()
-  },
+    this.getInfo();
+  }
 };
 </script>

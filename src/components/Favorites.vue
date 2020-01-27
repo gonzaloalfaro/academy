@@ -89,24 +89,24 @@
         </v-tabs-items>
       </v-tabs>
     </v-card>
+
+    <pre>
+      {{ trackFavorites }}
+    </pre>
   </v-container>
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from "vuex";
+import { mapState } from "vuex";
 export default {
-  name: "Dashboard",
-
+  name: "Favorites",
   data: () => ({
     tabs: null
   }),
   computed: {
-    ...mapState(["playlists", "favorite"])
+    ...mapState(["trackFavorites"])
   },
-  methods: {
-    ...mapMutations(["addFavorite"]),
-    ...mapActions(["getPlaylists"])
-  }
+  
 };
 </script>
 

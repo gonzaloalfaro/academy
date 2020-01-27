@@ -23,24 +23,29 @@ export default new Vuex.Store({
     filterGenres(state) {
       let filter = []
       for (const item of state.genres) {
-        if(item.name.indexOf(state.searching) >= 0) {
+        let name = item.name.toLowerCase()
+        if(name.indexOf(state.searching) >= 0) {
           filter.push(item)
         }
       }
       return filter
     }
+
   },
   mutations: {
     addGenres(state, genres) {
       state.genres = genres;
     },
     filtering(state, payload) {
-      state.searching = payload
+      state.searching = payload.toLowerCase()
     },
     addCharts(state, payload) {
       state.tracks = payload.tracks.data
       state.artists = payload.artists.data
       state.playlists = payload.playlists.data
+    },
+    addTrack(state, payload) {
+      state.track = payload
     },
     addPlaylist(state, payload){
       state.playlist = payload
@@ -78,7 +83,7 @@ export default new Vuex.Store({
     //Get information about the API in the current country
     async getInfo({ state }) {
       try {
-        const response = await axios.get(`/https://api.deezer.com/infos`)
+        const response = await axios.get(`/https://api.deezer.com/infos/?Bo`)
         state.info = response.data
       } catch (error) {
         error
@@ -86,10 +91,10 @@ export default new Vuex.Store({
     },
 
     //Get returns a track (id)
-    async getTrack({ state }, id) {
+    async getTrack({ commit }, id) {
       try {
         const response = await axios.get(`/https://api.deezer.com/track/${id}`)
-        state.track = response.data
+        commit('addTrack', response.data)
       } catch (error) {
         error
       }
@@ -116,6 +121,16 @@ export default new Vuex.Store({
         error
       }
     },
+
+    //Get search track, playlist, artist
+    async getSearch({commit}, item) {
+      try {
+        const response = await axios.get(`/https://api.deezer.com/search/${item.track}?q=${item.param}`)
+        commit('addTracklist', response.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
 
   },
   modules: {}

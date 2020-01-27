@@ -14,29 +14,18 @@ create table users(
     unique(email)
 );
 
-create table artists(
-    id_artist int(11) primary key auto_increment,
-    name varchar(20),
-    external_url varchar(100)
-);
-
 create table tracks(
     id_track int(11) primary key auto_increment,
-    name varchar(15),
-    author varchar(15),
-    duration_ms int(11),
-    external_url varchar(100),
-    uri varchar(50),
-    id_artist int(11),
-    foreign key (id_artist) references artists (id_artist)
+    id_user int(11),
+    foreign key (id_user) references users (id_user)
 );
 
-create table mymusic(
+create table playlists(
+    id_playlist int(11) primary key auto_increment,
     id_user int(11),
-    id_track int(11),
-    saved_date date,
-    foreign key (id_user) references users (id_user),
-    foreign key (id_track) references tracks (id_track)
+    foreign key (id_user) references users (id_user)
 );
+
+
 
 
