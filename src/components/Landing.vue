@@ -99,7 +99,7 @@
       <section>
         <v-parallax src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80" >
           <v-layout column align-center justify-center>
-            <div class="headline white--text mb-4 text-center">Web development has never been easier</div>
+            <div class="headline white--text mb-4 text-center">Desarrollo de una app </div>
             <em>Kick-start your application today</em>
             <v-btn
               class="mt-12"
