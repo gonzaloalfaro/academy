@@ -1,26 +1,25 @@
 <template>
- <v-app light>
-    <v-toolbar color="white">
+ <v-app dark>
+    <!-- <v-toolbar color="blue lighten-1">
       <v-toolbar-title v-text="title"></v-toolbar-title>
-    </v-toolbar>
+    </v-toolbar> -->
     <v-content>
       <section>
-        <v-parallax src="assets/hero.jpeg" height="600">
+        <v-parallax src="@/assets/bg1.jpg" max-height="4780px">
           <v-layout
             column
             align-center
             justify-center
             class="white--text"
           >
-            <img src="assets/vuetify.png" alt="Vuetify.js" height="200">
-            <h1 class="white--text mb-2 display-1 text-center">Parallax Template</h1>
-            <div class="subheading mb-4 text-center">Powered by Vuetify</div>
+            <img src="@/assets/logo.png" alt="Vuetify.js" height="200">
+            <h1 class="white--text mb-2 display-1 text-center">Las mejores playlist a tu alcance</h1>
+            <div class="subheading mb-4 text-center">Powered by Deezer</div>
             <v-btn
               class="mt-12"
               color="blue lighten-2"
               dark
               large
-              href="/pre-made-themes"
             >
               Get Started
             </v-btn>
@@ -98,7 +97,7 @@
       </section>
 
       <section>
-        <v-parallax src="assets/section.jpg" height="380">
+        <v-parallax src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80" >
           <v-layout column align-center justify-center>
             <div class="headline white--text mb-4 text-center">Web development has never been easier</div>
             <em>Kick-start your application today</em>
@@ -107,7 +106,6 @@
               color="blue lighten-2"
               dark
               large
-              href="/pre-made-themes"
             >
               Get Started
             </v-btn>
@@ -188,10 +186,11 @@
 
 </template>
 
-<script>
+<script >
 export default {
 
 }
+
 </script>
 
 <style>
