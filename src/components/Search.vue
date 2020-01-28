@@ -34,7 +34,7 @@
 
     <v-row class="fill-height mt-5" align="center">
       <template v-for="(track, index) in tracklist">
-        <v-col :key="index" cols="12" xs="6" sm="4" md="3" lg="2">
+        <v-col :key="index" cols="12" xs="6" sm="6" md="3">
           <v-hover v-slot:default="{ hover }">
             <v-card class="mx-auto" color="grey lighten-4">
               <!-- TRACK -->

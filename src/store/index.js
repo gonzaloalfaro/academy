@@ -5,9 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    ClientID: "7c362e3454874180b3563814b5d27350",
-    ClientSecret: "7574400f18604e2ca1a9b20bdc91b857",
-    AccessToken: "",
+    ApplicationID: "392024",
+    SecretKey: "b22f394bc4cb275f93c7ed60aa6c77e8",
     tracks: [],
     track: [],
     playlists: [],
@@ -17,7 +16,8 @@ export default new Vuex.Store({
     tracklist: [],
     genres: [],
     info: [],
-    searching: ""
+    searching: "",
+    trackFavorites: []
   },
   getters: {
     filterGenres(state) {
@@ -33,28 +33,31 @@ export default new Vuex.Store({
   },
   mutations: {
     addGenres(state, genres) {
-      state.genres = genres
+      state.genres = genres;
     },
     filtering(state, payload) {
-      state.searching = payload.toLowerCase()
+      state.searching = payload.toLowerCase();
     },
     addCharts(state, payload) {
-      state.tracks = payload.tracks.data
-      state.artists = payload.artists.data
-      state.playlists = payload.playlists.data
+      state.tracks = payload.tracks.data;
+      state.artists = payload.artists.data;
+      state.playlists = payload.playlists.data;
     },
     addTrack(state, payload) {
-      state.track = payload
+      state.track = payload;
     },
     addPlaylist(state, payload) {
-      state.playlist = payload
-      state.tracks = payload.tracks.data
+      state.playlist = payload;
+      state.tracks = payload.tracks.data;
     },
     addArtist(state, payload) {
-      state.artist = payload
+      state.artist = payload;
     },
     addTracklist(state, payload) {
-      state.tracklist = payload.data
+      state.tracklist = payload.data;
+    },
+    addFavorite(state, payload) {
+      state.trackFavorites.push(payload)
     }
   },
   actions: {
@@ -129,14 +132,13 @@ export default new Vuex.Store({
     //Get search track, playlist, artist
     async getSearch({ commit }, item) {
       try {
-        const response = await axios.get(
-          `/https://api.deezer.com/search/${item.track}?q=${item.param}/`
-        );
+        const response = await axios.get( `/https://api.deezer.com/search/${item.track}?q=${item.param}/`);
         commit("addTracklist", response.data);
       } catch (error) {
-        console.log(error);
+        error
       }
     }
+
   },
   modules: {}
 });

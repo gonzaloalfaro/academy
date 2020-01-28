@@ -90,9 +90,6 @@
       </v-tabs>
     </v-card>
 
-    <pre>
-      {{ trackFavorites }}
-    </pre>
   </v-container>
 </template>
 

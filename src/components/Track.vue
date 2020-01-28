@@ -8,12 +8,10 @@
               <v-img :src="track.album.cover_xl" max-height="250"></v-img>
             </v-card>
             <v-row justify="center" class="mt-5">
-
               <v-btn icon color="dark lighten-2">
                 <v-icon medium color="dark darken-2">mdi-heart-outline</v-icon>
                 <!-- <v-icon medium color="dark darken-2">mdi-heart</v-icon> -->
               </v-btn>
-              
 
               <div class="mx-2"></div>
               <v-icon medium color="dark darken-2">mdi-sort-variant</v-icon>
@@ -47,24 +45,45 @@
                       <aplayer
                         :audio="{
                           name: track.title,
-                          artist: track.title,
+                          artist: track.artist.name,
                           url: track.preview,
                           cover: track.album.cover_small
                         }"
                         mini
                       />
                     </td>
+                    <td>
+                      <v-tooltip bottom>
+                        <template v-slot:activator="{ on }">
+                          <v-btn icon color="dark lighten-2" v-on="on" @click="addFavorite(track.id)">
+                            <v-icon medium color="dark"
+                              >mdi-heart-outline</v-icon
+                            >
+                            <!-- <v-icon medium color="dark">mdi-heart</v-icon> -->
+                          </v-btn>
+                        </template>
+                        <span>Agregar a favoritos</span>
+                      </v-tooltip>
+                      
+                    </td>
+                    <v-spacer></v-spacer>
                     <td>{{ track.title }}</td>
                     <td>{{ track.duration }}</td>
                     <v-spacer></v-spacer>
+
                     <td>
-                      <a :href="track.link" target="_blank">
-                        <v-btn icon color="success lighten-2">
-                          <v-icon medium color="success"
-                            >mdi-library-music</v-icon
-                          >
-                        </v-btn>
-                      </a>
+                      <v-tooltip bottom>
+                        <template v-slot:activator="{ on }">
+                          <a :href="track.link" target="_blank">
+                            <v-btn icon color="success lighten-2" v-on="on">
+                              <v-icon medium color="success"
+                                >mdi-library-music</v-icon
+                              >
+                            </v-btn>
+                          </a>
+                        </template>
+                        <span>Escuchar completo en Deezer</span>
+                      </v-tooltip>
                     </td>
                   </tr>
                 </tbody>
@@ -78,7 +97,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   name: "Track",
   data: () => ({}),
@@ -86,6 +105,7 @@ export default {
     ...mapState(["track"])
   },
   methods: {
+    ...mapMutations(["addFavorite"]),
     ...mapActions(["getTrack"])
   },
   created() {
