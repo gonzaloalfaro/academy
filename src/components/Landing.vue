@@ -5,7 +5,7 @@
     </v-toolbar> -->
     <v-content>
       <section>
-        <v-parallax src="@/assets/bg1.jpg" max-height="4780px">
+        <v-parallax src="@/assets/Fondo.jpg" height="600">
           <v-layout
             column
             align-center
@@ -13,8 +13,8 @@
             class="white--text"
           >
             <img src="@/assets/logo.png" alt="Vuetify.js" height="200">
-            <h1 class="white--text mb-2 display-1 text-center">Las mejores playlist a tu alcance</h1>
-            <div class="subheading mb-4 text-center">Powered by Deezer</div>
+            <h1 class="black--text mb-2 display-1 text-center">Las mejores playlist a tu alcance</h1>
+            <div class="subheading black--text mb-4 text-center">Powered by Deezer</div>
             <v-btn
               class="mt-12"
               color="blue lighten-2"

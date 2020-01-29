@@ -26,25 +26,12 @@
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
-      <v-container>
         <router-view></router-view>
-      </v-container>
     </v-sheet>
 
     <div>
-      <v-app-bar color="dark accent-4" dark app class="justify-space-between">
-        <v-img src="./assets/spotify.svg" max-height="45" max-width="45" />
-        
-        <v-autocomplete
-          cache-items
-          class="mx-4"
-          flat
-          hide-no-data
-          hide-details
-          label="Busqueda"
-          solo-inverted
-          
-        ></v-autocomplete>
+      <v-app-bar color="dark accent-4" dark app class="justify-space-between">        
+       <v-spacer/>
        
         <v-btn color="dark" @click.stop="drawer = !drawer">Login</v-btn>
       </v-app-bar>
