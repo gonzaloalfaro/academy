@@ -10,7 +10,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <!-- <pre> {{ info }} </pre> -->
+        <pre> {{ info }} </pre>
 
       </v-card>
     </v-container>

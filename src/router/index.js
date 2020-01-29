@@ -9,7 +9,7 @@ const routes = [
     path: "/",
     name: "home",
     component: () => import("../components/Landingpage.vue"),
-    redirect: '/welcome'
+    
   },
   {
     path: "/welcome",
