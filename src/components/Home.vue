@@ -1,45 +1,28 @@
 <template>
- <v-app dark>
+  <v-app dark>
     <!-- <v-toolbar color="blue lighten-1">
       <v-toolbar-title v-text="title"></v-toolbar-title>
-    </v-toolbar> -->
+    </v-toolbar>-->
     <v-content>
       <section>
         <v-parallax src="@/assets/Fondo.jpg" height="600">
-          <v-layout
-            column
-            align-center
-            justify-center
-            class="white--text"
-          >
-            <img src="@/assets/logo.png" alt="Vuetify.js" height="200">
+          <v-layout column align-center justify-center class="white--text">
+            <img src="@/assets/logo.png" alt="Vuetify.js" height="200" />
             <h1 class="black--text mb-2 display-1 text-center">Las mejores playlist a tu alcance</h1>
             <div class="subheading black--text mb-4 text-center">Powered by Deezer</div>
-            <v-btn
-              class="mt-12"
-              color="blue lighten-2"
-              dark
-              large
-            >
-              Get Started
-            </v-btn>
+            <router-link to="/explore">
+              <v-btn class="mt-12" color="blue lighten-2" dark large>Get Started</v-btn>
+            </router-link>
           </v-layout>
         </v-parallax>
       </section>
 
       <section>
-        <v-layout
-          column
-          wrap
-          class="my-12"
-          align-center
-        >
+        <v-layout column wrap class="my-12" align-center>
           <v-flex xs12 sm4 class="my-4">
             <div class="text-center">
               <h2 class="headline">The best way to start developing</h2>
-              <span class="subheading">
-                Cras facilisis mi vitae nunc
-              </span>
+              <span class="subheading">Cras facilisis mi vitae nunc</span>
             </div>
           </v-flex>
           <v-flex xs12>
@@ -97,18 +80,13 @@
       </section>
 
       <section>
-        <v-parallax src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80" >
+        <v-parallax
+          src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80"
+        >
           <v-layout column align-center justify-center>
-            <div class="headline white--text mb-4 text-center">Desarrollo de una app </div>
+            <div class="headline white--text mb-4 text-center">Desarrollo de una app</div>
             <em>Kick-start your application today</em>
-            <v-btn
-              class="mt-12"
-              color="blue lighten-2"
-              dark
-              large
-            >
-              Get Started
-            </v-btn>
+            <v-btn class="mt-12" color="blue lighten-2" dark large>Get Started</v-btn>
           </v-layout>
         </v-parallax>
       </section>
@@ -133,9 +111,7 @@
                 <v-card-title primary-title class="layout justify-center">
                   <div class="headline">Contact us</div>
                 </v-card-title>
-                <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                </v-card-text>
+                <v-card-text>Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.</v-card-text>
                 <v-list class="transparent">
                   <v-list-item>
                     <v-list-item-action>
@@ -173,26 +149,21 @@
           <v-flex xs12>
             <div class="white--text ml-4">
               Made with
-              <v-icon class="red--text">mdi-heart</v-icon>
-              by <a class="white--text" href="https://vuetifyjs.com" target="_blank">Vuetify</a>
-              and <a class="white--text" href="https://github.com/vwxyzjn">Costa Huang</a>
+              <v-icon class="red--text">mdi-heart</v-icon>by
+              <a class="white--text" href="https://vuetifyjs.com" target="_blank">Vuetify</a>
+              and
+              <a class="white--text" href="https://github.com/vwxyzjn">Costa Huang</a>
             </div>
           </v-flex>
         </v-layout>
       </v-footer>
     </v-content>
-  </v-app> 
-
-
+  </v-app>
 </template>
 
 <script >
-export default {
-
-}
-
+export default {};
 </script>
 
 <style>
-
 </style>
