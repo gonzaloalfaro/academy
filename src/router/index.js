@@ -7,6 +7,12 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
+    name: "home",
+    component: () => import("../components/Landingpage.vue"),
+    redirect: '/welcome'
+  },
+  {
+    path: "/welcome",
     name: "welcome",
     component: Welcome
   },
@@ -44,6 +50,10 @@ const routes = [
     path: "/artist/:id",
     name: "artist",
     component: () => import("../components/Artist.vue")
+  },
+  { 
+    path: '*', 
+    component: () => import("../components/404.vue")
   }
 ];
 

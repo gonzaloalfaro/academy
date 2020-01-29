@@ -23,6 +23,11 @@
               </v-card>
             </v-hover>
           </router-link>
+
+
+          
+
+
         </v-slide-item>
       </v-slide-group>
 
@@ -102,11 +107,21 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.v-card--reveal
-  align-items: center
-  bottom: 0
-  justify-content: center
-  opacity: 0.8
-  position: absolute
-  width: 100%
+  .v-card--reveal
+    align-items: center
+    bottom: 0
+    justify-content: center
+    opacity: 0.8
+    position: absolute
+    width: 100%
+
+  .aplayer.aplayer-narrow .aplayer-body, .aplayer.aplayer-narrow .aplayer-pic
+    height: 50px important
+    width: 50px important
+    border-radius: 5%
+
+  .aplayer.aplayer-narrow
+    width: 50px !important
+
 </style>
+

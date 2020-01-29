@@ -88,7 +88,7 @@ export default {
         {
           icon: "mdi-apps",
           title: "Welcome",
-          to: "/"
+          to: "/welcome"
         },
         {
           icon: "mdi-view-day",

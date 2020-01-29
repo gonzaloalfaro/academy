@@ -1,25 +1,26 @@
 <template>
   <v-app>
-    <Navigation />
+    <div v-if="uri == '/'">
+      <router-view></router-view>
+    </div>
+    <div v-else>
+      <Navigation />
+    </div>
   </v-app>
 </template>
 
 <script>
-import Navigation from './components/Navigation';
+import Navigation from "./components/Navigation";
 
 export default {
-  name: 'App',
-
+  name: "App",
   components: {
-    Navigation,
+    Navigation
   },
-
   data: () => ({
-    //
-  }),
+    uri: window.location.pathname
+  })
 };
 </script>
 
-<style lang="stylus" scoped>
-
-</style>
+<style lang="stylus" scoped></style>

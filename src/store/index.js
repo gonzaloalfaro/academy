@@ -14,29 +14,32 @@ export default new Vuex.Store({
     artists: [],
     artist: [],
     tracklist: [],
-    genres: [],
+    tops: [],
     info: [],
-    searching: "",
-    trackFavorites: []
+    searching: ""
   },
   getters: {
-    filterGenres(state) {
+    filterTops(state) {
       let filter = [];
-      for (const item of state.genres) {
-        let name = item.name.toLowerCase();
+      for (const item of state.tops) {
+        let name = item.title.toLowerCase();
         if (name.indexOf(state.searching) >= 0) {
           filter.push(item);
         }
       }
       return filter;
-    }
+    },
+    
   },
   mutations: {
-    addGenres(state, genres) {
-      state.genres = genres;
+    addTops(state, payload) {
+      state.tops = payload.data;
     },
     filtering(state, payload) {
       state.searching = payload.toLowerCase();
+    },
+    clearSearching(state) {
+      state.searching = ""
     },
     addCharts(state, payload) {
       state.tracks = payload.tracks.data;
@@ -55,17 +58,15 @@ export default new Vuex.Store({
     },
     addTracklist(state, payload) {
       state.tracklist = payload.data;
-    },
-    addFavorite(state, payload) {
-      state.trackFavorites.push(payload)
     }
+
   },
   actions: {
-    //Get list of genders (all)
-    async getGenres({ commit }) {
+    //Get list of top tracks (100)
+    async getTops({ commit }) {
       try {
-        const response = await axios.get(`/https://api.deezer.com/genre/`);
-        commit("addGenres", response.data.data);
+        const response = await axios.get(`/https://api.deezer.com/chart/0/tracks?limit=100`);
+        commit("addTops", response.data);  
       } catch (error) {
         error;
       }
@@ -132,13 +133,14 @@ export default new Vuex.Store({
     //Get search track, playlist, artist
     async getSearch({ commit }, item) {
       try {
-        const response = await axios.get( `/https://api.deezer.com/search/${item.track}?q=${item.param}/`);
+        const response = await axios.get(
+          `/https://api.deezer.com/search/${item.track}?q=${item.param}/`
+        );
         commit("addTracklist", response.data);
       } catch (error) {
-        error
+        error;
       }
     }
-
   },
   modules: {}
 });

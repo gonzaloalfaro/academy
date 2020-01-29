@@ -31,15 +31,11 @@
                 <tbody>
                   <tr v-for="(track, index) in tracks" :key="index">
                     <td>
-
-                      <aplayer :audio="{name: track.title, artist: track.title, url: track.preview, cover: track.album.cover_small}" mini />
-
+                      <aplayer :audio="{name: track.title, artist: track.artist.name, url: track.preview, cover: track.album.cover_small}" mini />
                     </td>
+                    
                     <td>
-                      <v-btn icon color="dark lighten-2">
-                        <v-icon medium color="dark">mdi-heart-outline</v-icon>
-                        <!-- <v-icon medium color="dark">mdi-heart</v-icon> -->
-                      </v-btn>
+                      
                     </td>
                     <td>{{ track.title }}</td>
                     <td>{{ track.artist.name }}</td>

@@ -5,7 +5,10 @@
         <v-row justify="center">
           <v-col cols="auto" xs="12" sm="12" md="4" align="center">
             <v-card class="mx-auto" max-width="250" raised shaped>
-              <v-img :src="track.album.cover_xl" max-height="250"></v-img>
+              <div v-for="(t, index) of track" :key="index">
+                <v-img :src="t.cover_xl" max-height="250"></v-img>
+              </div>
+              
             </v-card>
             <v-row justify="center" class="mt-5">
               <v-btn icon color="dark lighten-2">
@@ -26,7 +29,7 @@
                     v-for="(contributor, index) in track.contributors"
                     :key="index"
                   >
-                    {{ contributor.name }} .
+                    {{ contributor.name }}.
                   </v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
@@ -42,29 +45,26 @@
                 <tbody>
                   <tr>
                     <td>
-                      <aplayer
-                        :audio="{
-                          name: track.title,
-                          artist: track.artist.name,
-                          url: track.preview,
-                          cover: track.album.cover_small
-                        }"
-                        mini
-                      />
+                      
+                        <aplayer
+                          :audio="{
+                            name: track.title,
+                            artist: track.artist.name,
+                            url: track.preview,
+                            cover: track.album.cover_small
+                          }"
+                          mini
+                        />
+                      
                     </td>
                     <td>
-                      <v-tooltip bottom>
-                        <template v-slot:activator="{ on }">
-                          <v-btn icon color="dark lighten-2" v-on="on" @click="addFavorite(track.id)">
-                            <v-icon medium color="dark"
-                              >mdi-heart-outline</v-icon
-                            >
-                            <!-- <v-icon medium color="dark">mdi-heart</v-icon> -->
-                          </v-btn>
-                        </template>
-                        <span>Agregar a favoritos</span>
-                      </v-tooltip>
-                      
+                      <v-btn
+                        :class="fav ? 'red--text' : ''"
+                        icon
+                        @click="fav = !fav"
+                      >
+                        <v-icon>mdi-heart</v-icon>
+                      </v-btn>
                     </td>
                     <v-spacer></v-spacer>
                     <td>{{ track.title }}</td>
@@ -82,7 +82,7 @@
                             </v-btn>
                           </a>
                         </template>
-                        <span>Escuchar completo en Deezer</span>
+                        <span>Escuchar en Deezer</span>
                       </v-tooltip>
                     </td>
                   </tr>
@@ -97,15 +97,16 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
   name: "Track",
-  data: () => ({}),
+  data: () => ({
+    fav: false
+  }),
   computed: {
     ...mapState(["track"])
   },
   methods: {
-    ...mapMutations(["addFavorite"]),
     ...mapActions(["getTrack"])
   },
   created() {
