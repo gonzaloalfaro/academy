@@ -1,26 +1,26 @@
 <template>
   <v-app>
-    <router-view></router-view>
+    <div v-if="uri == '/'">
+      <router-view></router-view>
+    </div>
+    <div v-else>
+      <Navigation />
+    </div>
   </v-app>
 </template>
 
 <script>
-//import Home from "./components/Home";
+import Navigation from "./components/Navigation";
 
 export default {
   name: "App",
-
   components: {
-    //Home
+    Navigation
   },
-
   data: () => ({
-    //
-    drawer: null,
-    items: [
-      { title: "Home", icon: "mdi-home" },
-      { title: "About", icon: "mdi-compass" }
-    ]
+    uri: window.location.pathname
   })
 };
 </script>
+
+<style lang="stylus" scoped></style>

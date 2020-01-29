@@ -1,5 +1,36 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <v-container>
+      <v-card class="mx-auto" raised>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="headline mb-1"
+              >This is an about page</v-list-item-title
+            >
+          </v-list-item-content>
+        </v-list-item>
+
+        <pre> {{ info }} </pre>
+
+      </v-card>
+    </v-container>
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import { mapState, mapActions } from "vuex";
+export default {
+  name: "about",
+  data: () => ({}),
+  computed: {
+    ...mapState(["info"])
+  },
+  methods: {
+    ...mapActions(["getInfo"])
+  },
+  created() {
+    this.getInfo();
+  }
+};
+</script>
