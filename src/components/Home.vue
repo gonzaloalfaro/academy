@@ -7,11 +7,12 @@
       <section>
         <v-parallax src="@/assets/Fondo.jpg" height="600">
           <v-layout column align-center justify-center class="white--text">
-            <img src="@/assets/logo.png" alt="Vuetify.js" height="200" />
+            <img src="@/assets/deezer1.png" alt="Vuetify.js" height="90" aspect-ratio="50%" />
+            <br>
             <h1 class="black--text mb-2 display-1 text-center">Las mejores playlist a tu alcance</h1>
             <div class="subheading black--text mb-4 text-center">Powered by Deezer</div>
             <router-link to="/explore">
-              <v-btn class="mt-12" color="blue lighten-2" dark large>Get Started</v-btn>
+              <v-btn class="mt-12" color="blue lighten-2" dark large href="https://explore">Descubre más</v-btn>
             </router-link>
           </v-layout>
         </v-parallax>
