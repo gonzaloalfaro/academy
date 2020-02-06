@@ -77,13 +77,14 @@
           <v-layout column align-center justify-center>
             <div class="headline white--text mb-4 text-center">Mostrando el futuro de la música</div>
             <em>Sé parte del mundo de la innovación</em>
-            <v-btn
-              class="mt-12"
-              color="blue lighten-2"
-              dark
-              large
-              href="https://explore"
-            >Descubre más</v-btn>
+            <a href="/explore" target="_blank">
+              <v-btn
+                class="mt-12"
+                color="blue lighten-2"
+                dark
+                large
+              >Descubre más</v-btn>
+            </a>
           </v-layout>
         </v-parallax>
       </section>

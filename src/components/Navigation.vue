@@ -44,32 +44,14 @@
       <v-btn @click.stop="clipped = !clipped" icon>
         <v-icon>mdi-application</v-icon>
       </v-btn>
-      <v-btn @click.stop="fixed = !fixed" icon>
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <v-btn @click.stop="rightDrawer = !rightDrawer" icon>
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
     </v-app-bar>
     <v-content>
       
         <router-view></router-view>
       
     </v-content>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
     <v-footer :fixed="fixed" app>
       <span>&copy; 2020</span>
     </v-footer>
@@ -114,7 +96,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: "Academy music app"
+      title: "Academy Music App"
     };
   }
 };

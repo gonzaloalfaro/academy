@@ -10,12 +10,7 @@
           </v-list-item-content>
         </v-list-item>
 
-<<<<<<< HEAD
-        <pre> {{ info }} </pre>
-
-=======
       <p class="pa-10">Desarrollado por Ruben Peñarrieta y Gonzalo Alfaro usando VueJS, consumiendo api de Deezer</p>
->>>>>>> 3231543a58c59fbd1bd6ac2bdcaa1ed00c4b9f4a
       </v-card>
     </v-container>
   </div>
