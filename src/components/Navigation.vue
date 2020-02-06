@@ -100,11 +100,11 @@ export default {
           title: "Search",
           to: "/search"
         },
-        {
-          icon: "mdi-tag-heart",
-          title: "Favorites",
-          to: "/favorites"
-        },
+        // {
+        //   icon: "mdi-tag-heart",
+        //   title: "Favorites",
+        //   to: "/favorites"
+        // },
         {
           icon: "mdi-chart-bubble",
           title: "About",

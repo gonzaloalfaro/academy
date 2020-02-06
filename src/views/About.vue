@@ -4,14 +4,18 @@
       <v-card class="mx-auto" raised>
         <v-list-item>
           <v-list-item-content>
-            <v-list-item-title class="headline mb-1"
-              >This is an about page</v-list-item-title
+            <v-list-item-title class="headline mb-1 text-center"
+              >App Deezer</v-list-item-title
             >
           </v-list-item-content>
         </v-list-item>
 
+<<<<<<< HEAD
         <pre> {{ info }} </pre>
 
+=======
+      <p class="pa-10">Desarrollado por Ruben Peñarrieta y Gonzalo Alfaro usando VueJS, consumiendo api de Deezer</p>
+>>>>>>> 3231543a58c59fbd1bd6ac2bdcaa1ed00c4b9f4a
       </v-card>
     </v-container>
   </div>

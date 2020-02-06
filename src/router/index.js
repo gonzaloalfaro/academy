@@ -8,8 +8,8 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: () => import("../components/Landingpage.vue"),
-    redirect: '/welcome'
+    component: () => import("../views/Home.vue"),
+    
   },
   {
     path: "/welcome",
