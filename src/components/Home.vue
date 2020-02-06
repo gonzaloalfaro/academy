@@ -112,7 +112,12 @@
 </template>
 
 <script >
-export default {};
+export default {
+  name: "Landingpage",
+  data: () => ({
+    //
+  })
+};
 </script>
 
 <style lang="sass" scoped>
